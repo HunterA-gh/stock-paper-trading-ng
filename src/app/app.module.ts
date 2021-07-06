@@ -1,0 +1,39 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
+
+import { AppComponent } from './app.component';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { AppRoutingModule } from './app-routing.module';
+import { ComponentsModule } from './components/components.module';
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { TradingComponent } from './pages/trading/trading.component';
+import {ChartsModule} from 'ng2-charts';
+import { MortgagecalcComponent } from './pages/mortgagecalc/mortgagecalc.component';
+
+@NgModule({
+    imports: [
+        BrowserAnimationsModule,
+        FormsModule,
+        HttpClientModule,
+        ComponentsModule,
+        NgbModule,
+        RouterModule,
+        AppRoutingModule,
+        ToastrModule.forRoot(),
+        ReactiveFormsModule,
+      ChartsModule,
+    ],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, LoginComponent, SignupComponent, TradingComponent, MortgagecalcComponent],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}

@@ -1,0 +1,223 @@
+<div class=" content">
+  <div>
+    <h1>Welcome {{user?.username}}</h1>
+    <h2>Your Current Balance: {{totalBalance | currency}}</h2>
+    <br>
+    <h3>Purchasing Power: {{user?.balance | currency}}</h3>
+    <h3>Portfolio Total: {{portfolioTotal | currency}}</h3>
+  </div>
+
+  <div class=" row">
+    <div class=" col-lg-6 col-md-12">
+      <div class=" card card-tasks">
+        <div class=" card-header">
+          <h6 class=" title d-inline">Things to Try</h6>
+          <p class=" card-category d-inline">(+Instructions on How to Use)</p>
+          <div ngbDropdown>
+            <button class=" btn btn-link btn-icon" data-toggle="dropdown" ngbDropdownToggle type="button">
+              <i class=" tim-icons icon-settings-gear-63"> </i>
+            </button>
+            <div aria-labelledby="dropdownMenuLink" class=" dropdown-menu-right" ngbDropdownMenu>
+              <a href="javascript:void(0)" ngbDropdownItem> Action </a>
+              <a href="javascript:void(0)" ngbDropdownItem> Another action </a>
+              <a href="javascript:void(0)" ngbDropdownItem> Something else </a>
+            </div>
+          </div>
+        </div>
+        <div class=" card-body">
+          <div class=" table-full-width table-responsive">
+            <table class=" table">
+              <tbody>
+              <tr>
+                <td>
+                  <div class=" form-check">
+                    <label class=" form-check-label">
+                      <input class=" form-check-input" type="checkbox" value=""/>
+                      <span class=" form-check-sign">
+                          <span class=" check"> </span>
+                        </span>
+                    </label>
+                  </div>
+                </td>
+                <td>
+                  <p class=" title">Search for Stocks</p>
+                  <p class=" text-muted">
+                    Use the Stock Chart Widget to search prices and other data about any stock you would like.
+                  </p>
+                </td>
+                <td class=" td-actions text-right">
+                  <button class=" btn btn-link" container="body" ngbTooltip="Edit Task" placement="left" type="button">
+                    <i class=" tim-icons icon-pencil"> </i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class=" form-check">
+                    <label class=" form-check-label">
+                      <input checked="" class=" form-check-input" type="checkbox" value=""/>
+                      <span class=" form-check-sign">
+                          <span class=" check"> </span>
+                        </span>
+                    </label>
+                  </div>
+                </td>
+                <td>
+                  <p class=" title">Buy a Stock</p>
+                  <p class=" text-muted">
+                    Found a stock you like? Type the symbol of the company and quantity of the stock that you like to buy and click the buy button.
+                  </p>
+                </td>
+                <td class=" td-actions text-right">
+                  <button class=" btn btn-link" container="body" ngbTooltip="Edit Task" placement="left" type="button">
+                    <i class=" tim-icons icon-pencil"> </i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class=" form-check">
+                    <label class=" form-check-label">
+                      <input class=" form-check-input" type="checkbox" value=""/>
+                      <span class=" form-check-sign">
+                          <span class=" check"> </span>
+                        </span>
+                    </label>
+                  </div>
+                </td>
+                <td>
+                  <p class=" title">Sell a Stock</p>
+                  <p class=" text-muted">
+                    Done holding or realized you don't want a stock? Type the symbol of the company and quantity of the stock that you like to sell and click the sell button.
+                  </p>
+                </td>
+                <td class=" td-actions text-right">
+                  <button class=" btn btn-link" container="body" ngbTooltip="Edit Task" placement="left" type="button">
+                    <i class=" tim-icons icon-pencil"> </i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class=" form-check">
+                    <label class=" form-check-label">
+                      <input class=" form-check-input" type="checkbox" value=""/>
+                      <span class=" form-check-sign">
+                          <span class=" check"> </span>
+                        </span>
+                    </label>
+                  </div>
+                </td>
+                <td>
+                  <p class=" title">Try Making It & Share</p>
+                  <p class=" text-muted">
+                    Check out the project on my GitHub page to clone or reference to make it yourself <a href="https://github.com/IsThisUsernameTaken1">here</a>
+                  </p>
+                </td>
+                <td class=" td-actions text-right">
+                  <button class=" btn btn-link" container="body" ngbTooltip="Edit Task" placement="left" type="button">
+                    <i class=" tim-icons icon-pencil"> </i>
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div class=" col-lg-6 col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h4 class=" card-title">Your Portfolio</h4>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+              <tr>
+                <th>Symbol</th>
+                <th>Quantity Owned</th>
+                <th>Current Price Per Share</th>
+                <th>Total Market Value</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let stock of user?.stocks; let i = index">
+                <td>{{stock.name}}</td>
+                <td>{{stock.quantity}}</td>
+                <td>{{pricePerShare[i] | currency}}</td>
+                <td>{{marketValues[i] | currency}}</td>
+
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class=" row ">
+    <div class=" col-12">
+      <div class=" card card-chart">
+
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container">
+          <div id="tradingview_a19c0"></div>
+          <script type="text/javascript">
+          </script>
+        </div>
+        <!-- TradingView Widget END -->
+      </div>
+    </div>
+  </div>
+<div class="row">
+
+  <div class="col-6">
+  <div class="card card-nav-tabs">
+    <h4 class="card-header card-header-info">Buy Stocks</h4>
+    <form [formGroup]="buyForm" (ngSubmit)="buy()">
+    <div class="card-body">
+      <label>
+      <h4 class="card-title">Enter Company Symbol</h4>
+      </label>
+      <input class="form-control" formControlName="stockName1" type="text" id="stockName1"  placeholder="Enter symbol">
+      <label>
+      <h4 class="card-title">Enter Quantity</h4>
+      </label>
+      <input class="form-control" formControlName="quantity1" type="number" id="quantity1" min=0 placeholder="Enter quantity">
+      <input type="submit" class="btn btn-info" value="Buy" [disabled]="buyForm.invalid">
+    </div>
+    </form>
+  </div>
+  </div>
+
+  <div class="col-6">
+  <div class="card card-nav-tabs">
+    <h4 class="card-header card-header-info">Sell Stocks</h4>
+    <form [formGroup]="sellForm" (ngSubmit)="sell()">
+      <div class="card-body">
+        <label>
+          <h4 class="card-title">Enter Company Symbol</h4>
+        </label>
+        <input class="form-control" formControlName="stockName2" type="text" id="stockName2"  placeholder="Enter symbol">
+        <label>
+          <h4 class="card-title">Enter Quantity</h4>
+        </label>
+        <input class="form-control" formControlName="quantity2" type="number" id="quantity2" min=0 placeholder="Enter quantity">
+        <input type="submit" class="btn btn-danger" value="Sell" [disabled]="sellForm.invalid">
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+
+</div>

@@ -1,0 +1,92 @@
+<div class="tradingview-widget-container __web-inspector-hide-shortcut__" style="width: 100%; height: 78px;">
+  <iframe scrolling="yes" allowtransparency="true" frameborder="0" src="https://s.tradingview.com/embed-widget/ticker-tape/?locale=en#%7B%22symbols%22%3A%5B%7B%22proName%22%3A%22FOREXCOM%3ASPXUSD%22%2C%22title%22%3A%22S%26P%20500%22%7D%2C%7B%22description%22%3A%22FNF%22%2C%22proName%22%3A%22NYSE%3AFNF%22%7D%2C%7B%22description%22%3A%22NASDAQ%20100%22%2C%22proName%22%3A%22FOREXCOM%3ANSXUSD%22%7D%2C%7B%22description%22%3A%22JPM%22%2C%22proName%22%3A%22NYSE%3AJPM%22%7D%2C%7B%22description%22%3A%22BTC%2FUSD%22%2C%22proName%22%3A%22BITSTAMP%3ABTCUSD%22%7D%2C%7B%22description%22%3A%22BAC%22%2C%22proName%22%3A%22NYSE%3ABAC%22%7D%5D%2C%22showSymbolLogo%22%3Atrue%2C%22colorTheme%22%3A%22dark%22%2C%22isTransparent%22%3Afalse%2C%22displayMode%22%3A%22regular%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A78%2C%22utm_source%22%3A%22www.tradingview.com%22%2C%22utm_medium%22%3A%22widget_new%22%2C%22utm_campaign%22%3A%22ticker-tape%22%7D" style="box-sizing: border-box; height: 46px; width: 100%;"></iframe>
+</div>
+
+  <nav class=" navbar navbar-expand-lg navbar-absolute navbar-transparent">
+  <div class=" container-fluid">
+    <div class=" navbar-wrapper">
+      <div class=" navbar-toggle d-inline">
+        <button class=" navbar-toggler" type="button" (click)="sidebarToggle()">
+          <span class=" navbar-toggler-bar bar1"> </span>
+          <span class=" navbar-toggler-bar bar2"> </span>
+          <span class=" navbar-toggler-bar bar3"> </span>
+        </button>
+      </div>
+      <div class=" navbar-bland"> {{ getTitle() }} </div>
+    </div>
+    <button
+      aria-label="Toggle navigation"
+      class=" navbar-toggler"
+      (click)="collapse()"
+      [attr.aria-expanded]="!isCollapsed"
+      aria-controls="collapseExample"
+      id="navigation"
+      type="button"
+    >
+      <span class=" navbar-toggler-bar navbar-kebab"> </span>
+      <span class=" navbar-toggler-bar navbar-kebab"> </span>
+      <span class=" navbar-toggler-bar navbar-kebab"> </span>
+    </button>
+    <div class=" navbar-collapse" [ngbCollapse]="isCollapsed" id="navigation">
+      <ul class=" navbar-nav ml-auto">
+<!--        <li class=" search-bar input-group">-->
+<!--          <button-->
+<!--            class=" btn btn-link"-->
+<!--            data-target="#searchModal"-->
+<!--            data-toggle="modal"-->
+<!--            (click)="open(content)"-->
+<!--            id="search-button"-->
+<!--          >-->
+<!--            <i class=" tim-icons icon-zoom-split"> </i>-->
+<!--            <span class=" d-lg-none d-md-block"> Search </span>-->
+<!--          </button>-->
+<!--        </li>-->
+
+        <li class=" nav-item" ngbDropdown>
+          <a
+            class=" nav-link"
+            data-toggle="dropdown"
+            href="javascript:void(0)"
+            ngbDropdownToggle
+          >
+            <div class=" photo">
+              <img alt="Profile Photo" src="assets/img/anime3.png" />
+            </div>
+            <b class=" caret d-none d-lg-block d-xl-block"> </b>
+            <p class=" d-lg-none">Log out</p>
+          </a>
+          <ul class=" dropdown-navbar" ngbDropdownMenu>
+            <li class=" nav-link">
+              <a class=" nav-item" routerLink="/login" ngbDropdownItem>
+                Log out
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class=" separator d-lg-none"></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<ng-template #content let-modal>
+  <div class=" modal-header">
+    <input
+      class=" form-control"
+      id="inlineFormInputGroup"
+      placeholder="SEARCH"
+      type="text"
+    />
+
+    <button
+      aria-label="Close"
+      class=" close"
+      data-dismiss="modal"
+      type="button"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <i class=" tim-icons icon-simple-remove"> </i>
+    </button>
+  </div>
+
+</ng-template>

@@ -1,0 +1,133 @@
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-8">
+      <div class=" card">
+        <div class=" card-header"><h5 class=" title">Create a Paper Trading Profile</h5></div>
+        <div class=" card-body">
+          <form (ngSubmit)="onSubmit()" [formGroup]="signUpForm">
+
+
+            <div class=" row">
+              <div class=" col-md-8 pr-md-1">
+                <label> Choose a Username </label>
+                <input
+                  class=" form-control"
+                  placeholder="Enter Username"
+                  type="text"
+                  formControlName="user"
+                />
+              </div>
+            </div>
+
+
+            <div class=" row">
+              <div class=" col-md-8 pr-md-1">
+                <label> Choose a Strong Password </label>
+                <input
+                  class=" form-control"
+                  placeholder="Enter Password"
+                  type="password"
+                  formControlName="pass"
+                />
+                <span class="has-error" *ngIf="pass.invalid && pass.touched">Password must be at least 6 characters, contain at least one uppercase letter, lower case letter and number  </span>
+              </div>
+            </div>
+
+
+            <div class=" row">
+              <div class=" col-md-8">
+                <label>Trading Experience</label>
+                <select  class="form-control" formControlName="exp">
+                  <option *ngFor="let option of experienceOptions" value="{{option.key}}">{{option.value}}</option>
+                </select>
+              </div>
+            </div>
+
+
+            <div class=" row">
+              <div class=" col-md-8 pr-md-1">
+                <label> Choose a Starting Balance </label>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">$</span>
+                  </div>
+                <input
+                  class=" form-control"
+                  placeholder="Enter Starting Balance"
+                  type="Number"
+                  formControlName="balance"
+                  min="0"
+                />
+                </div>
+              </div>
+            </div>
+
+
+            <div class=" row">
+              <div class=" col-md-8">
+                (Optional) Suggestions on how I can improve this project?
+                <textarea
+                  class=" form-control"
+                  cols="80"
+                  placeholder="Write your suggestions here"
+                  rows="4"
+                >
+                </textarea>
+              </div>
+            </div>
+
+            <div class=" card-footer">
+              <button class=" btn btn-fill" type="button" routerLink="/login">Go to Login Page</button>
+              <button class=" btn btn-fill btn-success" type="submit" [disabled]="signUpForm.invalid">Sign Up!</button>
+            </div>
+          </form>
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+    <div class=" col-md-4">
+      <div class=" card card-user">
+        <div class=" card-body">
+          <p class=" card-text"></p>
+          <div class=" author">
+            <div class=" block block-one"></div>
+            <div class=" block block-two"></div>
+            <div class=" block block-three"></div>
+            <div class=" block block-four"></div>
+            <a href="javascript:void(0)">
+              <img alt="..." class=" avatar" src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Codinglogo.jpg"/>
+
+              <h5 class=" title">About This Project</h5>
+            </a>
+            <p class=" description">Cohort9 Finance</p>
+          </div>
+          <div class=" card-description">
+            Stock paper trading app made utilizing frameworks & technologies like Angular, Spring Boot, MySQL, Apache
+            Kafka, marketstack API, and more!
+          </div>
+        </div>
+        <div class=" card-footer">
+          <div class=" button-container">
+            <a href="https://github.com/IsThisUsernameTaken1">
+              <button
+                class=" btn btn-icon btn-round btn-twitter"
+              >
+                <i class=" fab fa-github"> </i>
+              </button>
+            </a>
+            <button
+              class=" btn btn-icon btn-round btn-google"
+              href="javascript:void(0)"
+            >
+              <i class=" fab fa-linkedin"> </i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
