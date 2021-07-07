@@ -6,7 +6,7 @@
 
     <div class=" col-6">
       <div class=" card">
-        <div class=" card-header"><h5 class=" title">Mortgage Calculator</h5></div>
+        <div class=" card-header"><h5 class=" title">Mortgage Calculator (or any fixed-rate loans)</h5></div>
         <div class=" card-body">
           <form>
             <div class=" row">
@@ -23,6 +23,7 @@
                     type="number"
                     [(ngModel)]="principleAmount"
                     name="principleAmount"
+                    [min]="0"
                   />
                 </div>
                 </div>
@@ -40,6 +41,7 @@
                     id="termLength"
                     [(ngModel)]="termLength"
                     name="termLength"
+                    [min]="0"
                   />
                 </div>
               </div>
@@ -55,6 +57,7 @@
                   type="number"
                   [(ngModel)]="interestRate"
                   name="interestRate"
+                  [min]="0"
                 />
               </div>
             </div>
@@ -69,11 +72,11 @@
               <div class=" col-md-6 pl-md-1">
 
                 <label> Monthly Payment (for {{monthAmount()}} months)</label>
-                <p>{{monthlyPaymentFormula() | currency}} </p>
+                <p>{{monthlyPayment() | currency}} </p>
               </div>
 
             </div>
-            <div class=" row mb-5">
+            <div class=" row mb-3">
               <div class=" col-md-12 toast-center-center">
 
                 <label> Total Cost of Mortgage </label>
@@ -88,6 +91,24 @@
           </form>
         </div>
       </div>
+      <div id="chart-container">
+        <canvas #myCanvas id="canvas" baseChart
+                [chartType]="chartType3"
+                [datasets]="chartData3"
+                [labels]="chartLabels3"
+                [colors]="chartColors3"
+                [options]="chartOptions3"></canvas>
+      </div>
+
+      <div id="chart-container">
+        <canvas #myCanvas id="canvas" baseChart
+                [chartType]="chartType4"
+                [datasets]="chartData4"
+                [labels]="chartLabels4"
+                [colors]="chartColors4"
+                [options]="chartOptions4"></canvas>
+      </div>
+
     </div>
 
 
@@ -117,8 +138,6 @@
                   [options]="chartOptions2"></canvas>
         </div>
       </div>
-
-
 
 
 
